@@ -1,0 +1,19 @@
+{
+    "name": "OneWood.Editor",
+    "rootNamespace": "OneWood.Editor",
+    "references": [
+        "OneWood.LaunchMonitor",
+        "OneWood.Dev"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
