@@ -1,0 +1,159 @@
+# ---------------------------------------------------------------------------
+# Line endings
+# Normalize text to LF in the repo. Unity writes LF on every platform.
+# ---------------------------------------------------------------------------
+* text=auto
+
+*.cs              text diff=csharp
+*.shader          text
+*.hlsl            text
+*.cginc           text
+*.compute         text
+*.json            text
+*.md              text
+*.txt             text
+*.xml             text
+*.yml             text
+*.yaml            text
+*.sh              text eol=lf
+*.bat             text eol=crlf
+*.cmd             text eol=crlf
+*.ps1             text eol=crlf
+
+# ---------------------------------------------------------------------------
+# Unity YAML (Force Text serialization)
+# merge=unityyamlmerge uses Unity's Smart Merge if it is configured locally
+# (see README "Development setup"); otherwise git uses its normal text merge.
+# linguist-generated hides these from GitHub diff stats.
+# ---------------------------------------------------------------------------
+*.unity           text eol=lf merge=unityyamlmerge linguist-generated
+*.prefab          text eol=lf merge=unityyamlmerge linguist-generated
+*.asset           text eol=lf merge=unityyamlmerge linguist-generated
+*.meta            text eol=lf merge=unityyamlmerge linguist-generated
+*.mat             text eol=lf merge=unityyamlmerge linguist-generated
+*.anim            text eol=lf merge=unityyamlmerge linguist-generated
+*.controller      text eol=lf merge=unityyamlmerge linguist-generated
+*.overrideController text eol=lf merge=unityyamlmerge linguist-generated
+*.mask            text eol=lf merge=unityyamlmerge linguist-generated
+*.physicMaterial  text eol=lf merge=unityyamlmerge linguist-generated
+*.physicsMaterial2D text eol=lf merge=unityyamlmerge linguist-generated
+*.playable        text eol=lf merge=unityyamlmerge linguist-generated
+*.signal          text eol=lf merge=unityyamlmerge linguist-generated
+*.mixer           text eol=lf merge=unityyamlmerge linguist-generated
+*.flare           text eol=lf merge=unityyamlmerge linguist-generated
+*.guiskin         text eol=lf merge=unityyamlmerge linguist-generated
+*.fontsettings    text eol=lf merge=unityyamlmerge linguist-generated
+*.brush           text eol=lf merge=unityyamlmerge linguist-generated
+*.terrainlayer    text eol=lf merge=unityyamlmerge linguist-generated
+*.lighting        text eol=lf merge=unityyamlmerge linguist-generated
+*.spriteatlas     text eol=lf merge=unityyamlmerge linguist-generated
+*.spriteatlasv2   text eol=lf merge=unityyamlmerge linguist-generated
+*.inputactions    text eol=lf
+*.shadergraph     text eol=lf linguist-generated
+*.shadersubgraph  text eol=lf linguist-generated
+*.vfx             text eol=lf linguist-generated
+*.vfxoperator     text eol=lf linguist-generated
+*.vfxblock        text eol=lf linguist-generated
+*.uxml            text eol=lf
+*.uss             text eol=lf
+*.asmdef          text eol=lf
+*.asmref          text eol=lf
+
+# ---------------------------------------------------------------------------
+# Git LFS
+# These come after the text rules, so for a matching file the LFS filter
+# (and -text) wins.
+# ---------------------------------------------------------------------------
+
+# Unity assets that are binary even with Force Text, or very large
+LightingData.asset            filter=lfs diff=lfs merge=lfs -text
+*[Ll]ighting[Dd]ata.asset     filter=lfs diff=lfs merge=lfs -text
+NavMesh.asset                 filter=lfs diff=lfs merge=lfs -text
+NavMesh-*.asset               filter=lfs diff=lfs merge=lfs -text
+# Convention: keep TerrainData assets in a folder named TerrainData/
+**/TerrainData/*.asset        filter=lfs diff=lfs merge=lfs -text
+*.cubemap                     filter=lfs diff=lfs merge=lfs -text
+*.unitypackage                filter=lfs diff=lfs merge=lfs -text
+
+# Images / textures
+*.png                         filter=lfs diff=lfs merge=lfs -text
+*.jpg                         filter=lfs diff=lfs merge=lfs -text
+*.jpeg                        filter=lfs diff=lfs merge=lfs -text
+*.tga                         filter=lfs diff=lfs merge=lfs -text
+*.tif                         filter=lfs diff=lfs merge=lfs -text
+*.tiff                        filter=lfs diff=lfs merge=lfs -text
+*.psd                         filter=lfs diff=lfs merge=lfs -text
+*.psb                         filter=lfs diff=lfs merge=lfs -text
+*.exr                         filter=lfs diff=lfs merge=lfs -text
+*.hdr                         filter=lfs diff=lfs merge=lfs -text
+*.bmp                         filter=lfs diff=lfs merge=lfs -text
+*.gif                         filter=lfs diff=lfs merge=lfs -text
+*.iff                         filter=lfs diff=lfs merge=lfs -text
+*.dds                         filter=lfs diff=lfs merge=lfs -text
+*.ktx                         filter=lfs diff=lfs merge=lfs -text
+*.webp                        filter=lfs diff=lfs merge=lfs -text
+*.kra                         filter=lfs diff=lfs merge=lfs -text
+*.xcf                         filter=lfs diff=lfs merge=lfs -text
+
+# Heightmaps / terrain sources
+*.raw                         filter=lfs diff=lfs merge=lfs -text
+*.r16                         filter=lfs diff=lfs merge=lfs -text
+*.r32                         filter=lfs diff=lfs merge=lfs -text
+
+# 3D models and DCC sources
+*.fbx                         filter=lfs diff=lfs merge=lfs -text
+*.obj                         filter=lfs diff=lfs merge=lfs -text
+*.blend                       filter=lfs diff=lfs merge=lfs -text
+*.dae                         filter=lfs diff=lfs merge=lfs -text
+*.3ds                         filter=lfs diff=lfs merge=lfs -text
+*.max                         filter=lfs diff=lfs merge=lfs -text
+*.ma                          filter=lfs diff=lfs merge=lfs -text
+*.mb                          filter=lfs diff=lfs merge=lfs -text
+*.abc                         filter=lfs diff=lfs merge=lfs -text
+*.glb                         filter=lfs diff=lfs merge=lfs -text
+*.gltf                        filter=lfs diff=lfs merge=lfs -text
+*.usd                         filter=lfs diff=lfs merge=lfs -text
+*.usdz                        filter=lfs diff=lfs merge=lfs -text
+*.ply                         filter=lfs diff=lfs merge=lfs -text
+*.stl                         filter=lfs diff=lfs merge=lfs -text
+*.spp                         filter=lfs diff=lfs merge=lfs -text
+*.sbs                         filter=lfs diff=lfs merge=lfs -text
+*.sbsar                       filter=lfs diff=lfs merge=lfs -text
+*.speedtree                   filter=lfs diff=lfs merge=lfs -text
+*.spm                         filter=lfs diff=lfs merge=lfs -text
+*.st                          filter=lfs diff=lfs merge=lfs -text
+
+# Audio
+*.wav                         filter=lfs diff=lfs merge=lfs -text
+*.mp3                         filter=lfs diff=lfs merge=lfs -text
+*.ogg                         filter=lfs diff=lfs merge=lfs -text
+*.flac                        filter=lfs diff=lfs merge=lfs -text
+*.aif                         filter=lfs diff=lfs merge=lfs -text
+*.aiff                        filter=lfs diff=lfs merge=lfs -text
+*.m4a                         filter=lfs diff=lfs merge=lfs -text
+*.bank                        filter=lfs diff=lfs merge=lfs -text
+
+# Video
+*.mp4                         filter=lfs diff=lfs merge=lfs -text
+*.mov                         filter=lfs diff=lfs merge=lfs -text
+*.webm                        filter=lfs diff=lfs merge=lfs -text
+*.avi                         filter=lfs diff=lfs merge=lfs -text
+
+# Fonts
+*.ttf                         filter=lfs diff=lfs merge=lfs -text
+*.otf                         filter=lfs diff=lfs merge=lfs -text
+
+# Native plugins and binaries
+*.dll                         filter=lfs diff=lfs merge=lfs -text
+*.so                          filter=lfs diff=lfs merge=lfs -text
+*.dylib                       filter=lfs diff=lfs merge=lfs -text
+*.a                           filter=lfs diff=lfs merge=lfs -text
+*.exe                         filter=lfs diff=lfs merge=lfs -text
+*.bundle                      filter=lfs diff=lfs merge=lfs -text
+
+# Archives / documents
+*.zip                         filter=lfs diff=lfs merge=lfs -text
+*.7z                          filter=lfs diff=lfs merge=lfs -text
+*.gz                          filter=lfs diff=lfs merge=lfs -text
+*.rar                         filter=lfs diff=lfs merge=lfs -text
+*.pdf                         filter=lfs diff=lfs merge=lfs -text

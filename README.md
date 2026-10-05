@@ -360,7 +360,13 @@ one_wood/
 ## Development setup
 
 1. Install **Unity Hub** and **Unity 6 LTS** with the *Windows Build Support (IL2CPP)* module.
-2. Install **Git LFS** and run `git lfs install` before cloning.
+2. Install **Git LFS** and run `git lfs install` before cloning. `.gitattributes` sends textures, models, audio, video, fonts, native plugins and baked lighting/NavMesh data to LFS. Keep `TerrainData` assets in a folder named `TerrainData/` so they go to LFS too. Unity is set to **Force Text** serialization, so scenes and prefabs stay as mergeable YAML.
+   - *Optional, Unity Smart Merge:* point git at Unity's YAML merge tool so scene and prefab conflicts merge semantically:
+     ```
+     git config merge.unityyamlmerge.name "Unity SmartMerge"
+     git config merge.unityyamlmerge.driver "'C:/Program Files/Unity/Hub/Editor/<version>/Editor/Data/Tools/UnityYAMLMerge.exe' merge -p %O %B %A %A"
+     git config merge.unityyamlmerge.recursive binary
+     ```
 3. Open `OneWood/` in Unity Hub. The project uses HDRP, the Input System, Cinemachine, and the NVIDIA DLSS package.
 4. Install **FS Golf PC** on the simulator PC, pair the Mevo+, and set the simulator connection to **GSPro / Open Connect** pointing at `127.0.0.1:921` (or the game PC's IP).
 5. Allow One Wood through **Windows Firewall** on TCP 921 if FS Golf runs on another machine.
